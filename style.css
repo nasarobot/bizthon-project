@@ -7,7 +7,7 @@
 html,
 body {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     position: relative;
@@ -16,15 +16,15 @@ body {
 }
 
 #outer-container {
-    width: 60vw;
-    min-width: 25rem;
+    width: 40rem;
+    min-width: 15rem;
     max-width: 40rem;
     min-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #fff;
-    margin: 5vh;
+    margin: 5vh 2vh;
     padding: 2rem;
     box-shadow: 2px 2px 10px #000;
 }
@@ -51,13 +51,34 @@ body {
     border-color: transparent;
 }
 #profile-display{
+    padding: 1rem .3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: 1rem;
-
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: red orange;
+}
+#profile-display::-webkit-scrollbar{
+    width: 10px;
 }
 span{
-    min-height: 2rem;
+    padding: 0.3rem .5rem;
     box-shadow: 1px 1px 5px #000;
     border-radius: 1rem;
+}
+
+@media(width<700px){
+    #outer-container{
+        padding: 1rem;
+    }
+    #outer-container>* {
+        margin: 1rem 0 0;
+    }
+    span{
+        border-radius: 0;
+    }
+    ::-webkit-scrollbar{
+        display: none;
+    }
 }
